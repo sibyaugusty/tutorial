@@ -1,4 +1,4 @@
-# tut
+# Tutorial
 
 # Building a WordPress Theme from Scratch
 
