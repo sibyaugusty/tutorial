@@ -11,27 +11,45 @@ An end-to-end guide on creating a custom WordPress theme, covering setup, file s
 ![WordPress Installation Screenshot](images/wordpress-setup.png)
 
 ## 2. Basic File Structure
-Create essential files in your theme folder:
-- `style.css`
-- `index.php`
-- `functions.php`
 
-![Theme Folder Structure](images/theme-structure.png)
-
-## 3. Enqueue Styles and Scripts
-To enqueue files, add the following to `functions.php`:
+Create the following essential files inside your theme folder (`my-custom-theme`):
 
 
-### 3. **Add Screenshots**
+### File Descriptions
 
-To include screenshots, create an `images` folder in your project directory. Save your screenshots in this folder, then reference them in `README.md` like so:
+- **style.css**: This file contains the theme metadata and custom CSS styles. It’s required for WordPress to recognize the theme.
+- **index.php**: The main template file that WordPress will fall back on if no other templates are available.
+- **functions.php**: Used to add theme functions, enqueue styles and scripts, register menus, and more.
+- **header.php**: Contains the `<head>` section and opening HTML tags. Included at the top of other template files.
+- **footer.php**: Contains the closing HTML tags and is included at the bottom of other template files.
+- **sidebar.php**: Sidebar template, often used to display widgets.
+- **single.php**: Template for individual blog post pages.
+- **page.php**: Template for static pages.
+- **archive.php**: Template for category, tag, and date archive pages.
 
-```markdown
-![Description of Image](images/filename.png)
+# Basic WordPress Theme File Structure and Content
 
-```php
-function my_custom_theme_scripts() {
-    wp_enqueue_style('style', get_stylesheet_uri());
-    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true);
-}
-add_action('wp_enqueue_scripts', 'my_custom_theme_scripts');
+In this section, you’ll find a description and sample code for each essential file in a WordPress theme.
+
+---
+
+## File: `style.css`
+
+The `style.css` file contains theme metadata and styles. The metadata at the top is required for WordPress to recognize the theme.
+
+```css
+/*
+Theme Name: My Custom Theme
+Theme URI: http://yourwebsite.com
+Author: Your Name
+Author URI: http://yourwebsite.com
+Description: A custom WordPress theme built from scratch
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: my-custom-theme
+*/
+
+
+
+
