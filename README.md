@@ -21,6 +21,14 @@ Create essential files in your theme folder:
 ## 3. Enqueue Styles and Scripts
 To enqueue files, add the following to `functions.php`:
 
+
+### 3. **Add Screenshots**
+
+To include screenshots, create an `images` folder in your project directory. Save your screenshots in this folder, then reference them in `README.md` like so:
+
+```markdown
+![Description of Image](images/filename.png)
+
 ```php
 function my_custom_theme_scripts() {
     wp_enqueue_style('style', get_stylesheet_uri());
