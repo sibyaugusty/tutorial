@@ -24,17 +24,26 @@ An end-to-end guide on creating a custom WordPress theme, covering setup, file s
   In a custom theme, certain files and folders are essential. WordPress looks for specific files to recognize it as a valid theme:
   
   -- **style.css**: This is the primary stylesheet for your theme, which also contains metadata about the theme.
+  
   -- **index.php**: The main template file; it’s required and serves as a fallback for any missing templates.
+  
   -- **functions**.php: This file adds functionality, registers assets (like CSS and JS files), and enables theme features.
+  
   -- **screenshot.png**: An optional image displayed in the WordPress theme selector.
+  
     
   Additional files and folders may include:
   
   -- **header.php**: Defines the header section.
+  
   -- **footer.php**: Defines the footer section.
+  
   -- **sidebar.php**: Contains sidebar widgets or links.
+
   -- **page.php**: Template for static pages.
+  
   -- **single.php**: Template for individual blog posts.
+  
 
 ## 3. File and Folder Explanation with Examples
 
