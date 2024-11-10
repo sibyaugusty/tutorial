@@ -351,3 +351,69 @@ A loop to display relevant posts or pages.
 </main>
 <?php get_footer(); ?>
 ```
+
+## Advanced Optional
+## Adding Customizer for custom theme
+
+-- The WordPress Customizer is a feature in WordPress that allows users to modify various aspects of their theme and see these changes in real-time before they’re published. When you add options to the Customizer, you’re enabling theme users to adjust settings like colors, logos, fonts, or layouts easily through the WordPress dashboard.
+
+-- **Where to Access the Customizer**
+To see and use the Customizer, go to your WordPress dashboard:
+
+-- **Go to Appearance > Customize**
+This opens the Customizer panel, where you’ll see sections and controls based on the options you’ve defined in your theme.
+The settings you add to the Customizer (like colors, layout options, etc.) will show up as panels, sections, or individual controls on the left side. As you make changes, the preview on the right will update in real time, allowing you to see how the adjustments affect your site.
+
+Example of Adding a Custom Color Option to the Customizer
+Let’s walk through an example of adding a color setting for the header background in the Customizer.
+
+Add Code to functions.php
+
+In your theme’s **functions.php**, add this code:
+
+```css
+function mytheme_customize_register($wp_customize) {
+    // Add a new section in the Customizer
+    $wp_customize->add_section('mytheme_colors', array(
+        'title' => __('Theme Colors'),
+        'description' => 'Customize theme colors',
+        'priority' => 30,
+    ));
+
+    // Add setting for the header background color
+    $wp_customize->add_setting('mytheme_header_color', array(
+        'default' => '#333', // default color
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+
+    // Add control for the header background color
+    $wp_customize->add_control(new WP_Customize_Color_Control(
+        $wp_customize,
+        'mytheme_header_color',
+        array(
+            'label' => 'Header Background Color',
+            'section' => 'mytheme_colors',
+            'settings' => 'mytheme_header_color',
+        )
+    ));
+}
+add_action('customize_register', 'mytheme_customize_register');
+```
+
+Use the Setting in Your Theme Files
+
+Once you have registered this setting, you’ll need to use it in your theme to see the effect. For example, let’s apply the header color in header.php:
+
+```css
+<header style="background-color: <?php echo get_theme_mod('mytheme_header_color', '#333'); ?>;">
+    <!-- Header content here -->
+</header>
+```
+
+Here, get_theme_mod('mytheme_header_color', '#333') fetches the color selected in the Customizer. The second argument, '#333', is the default color if no selection is made.
+
+Go to the Customizer to See the Change
+
+After adding this code, go to **Appearance > Customize** in your WordPress dashboard.
+Find the **Theme Colors** section, where you should now see an option to select the Header Background Color.
+Select a new color, and you’ll see the header background update in real time in the Customizer preview.
