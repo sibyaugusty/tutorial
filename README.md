@@ -168,7 +168,7 @@ add_action('after_setup_theme', 'mytheme_basic_functions');
 -- **search.php**: Template for search results.
 
 
-1. header.php
+## 1. header.php
    
 The header.php file is responsible for the top part of your theme that appears on every page—usually the logo, navigation menu, and site title. This file is called at the top of each template to display a consistent header across the site.
 
@@ -202,7 +202,7 @@ Any other elements you want to appear consistently at the top.
     </header>
 ```
 
-2. footer.php
+## 2. footer.php
    
 The footer.php file contains the bottom section of your theme and is generally used to display copyright information, links to privacy policies, and footer widgets.
 
@@ -229,7 +229,7 @@ Calls to wp_footer(), which loads necessary WordPress scripts.
 </html>
 ```
 
-3. sidebar.php
+## 3. sidebar.php
    
 The sidebar.php file is used for adding a sidebar to your theme. Sidebars commonly contain widgets like recent posts, categories, and search bars. You can place this file on pages where you want a sidebar, like blog or archive pages.
 
@@ -249,7 +249,7 @@ Links to recent posts, categories, and more.
 </aside>
 ```
 
-4. page.php
+## 4. page.php
    
 The page.php file is a template used for static pages (like “About Us” or “Contact”). This template is generally less complex than the blog template (single.php) because static pages typically don’t include post dates, categories, or tags.
 
@@ -271,7 +271,7 @@ Basic layout without elements specific to posts (e.g., no categories or comments
 <?php get_footer(); ?>
 ```
 
-5. single.php
+## 5. single.php
    
 The single.php file is the template for individual blog posts. This is where you show the post title, date, author, categories, tags, content, and comment section.
 
@@ -298,7 +298,7 @@ Comment section if comments are enabled.
 <?php get_footer(); ?>
 ```
 
-6. archive.php
+## 6. archive.php
    
 The archive.php file is used to display a list of posts based on specific criteria, such as categories, tags, or authors. For example, when a user views all posts under a category, WordPress will use this template.
 
@@ -325,7 +325,7 @@ Metadata like post dates, categories, and authors.
 <?php get_footer(); ?>
 ```
 
-7. search.php
+## 7. search.php
    
 The search.php file is used to display search results when a user performs a search on your site. It lists posts or pages that match the search query.
 
