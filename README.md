@@ -86,10 +86,10 @@ This file is essential for adding theme support, registering menus, and includin
 ```css
 <?php
 function mytheme_setup() {
-    // Enable support for Post Thumbnails
+    /*// Enable support for Post Thumbnails*/
     add_theme_support('post-thumbnails');
 
-    // Register a navigation menu
+    /*// Register a navigation menu*/
     register_nav_menus(array(
         'primary' => 'Primary Menu',
     ));
@@ -138,10 +138,10 @@ Key features include:
 ```css
 <?php
 function mytheme_basic_functions() {
-    // Enable custom logo support
+    /*// Enable custom logo support*/
     add_theme_support('custom-logo');
 
-    // Register widget area
+    /*// Register widget area*/
     register_sidebar(array(
         'name' => 'Sidebar',
         'id' => 'sidebar-1',
@@ -184,17 +184,17 @@ Any other elements you want to appear consistently at the top.
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); // Adds all necessary WordPress functionality to the head ?>
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
     <header>
         <div class="site-logo">
-            <?php the_custom_logo(); // Display the custom logo if enabled ?>
+            <?php the_custom_logo(); ?>
         </div>
         <nav class="main-nav">
             <?php
             wp_nav_menu(array(
-                'theme_location' => 'primary', // Location defined in functions.php
+                'theme_location' => 'primary',
                 'container' => false,
             ));
             ?>
@@ -242,7 +242,8 @@ Links to recent posts, categories, and more.
 ```css
 <aside class="sidebar">
     <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-        <?php dynamic_sidebar( 'sidebar-1' ); // Display widgets assigned to sidebar-1 ?>
+         /*// Display widgets assigned to sidebar-1*/
+        <?php dynamic_sidebar( 'sidebar-1' ); ?>
     <?php else : ?>
         <p>Add widgets in the WordPress dashboard to appear here.</p>
     <?php endif; ?>
@@ -292,7 +293,7 @@ Comment section if comments are enabled.
         <div class="post-content">
             <?php the_content(); ?>
         </div>
-        <?php comments_template(); // Loads the comment section ?>
+        <?php comments_template(); ?>
     <?php endwhile; endif; ?>
 </main>
 <?php get_footer(); ?>
@@ -310,7 +311,8 @@ Metadata like post dates, categories, and authors.
 ```css
 <?php get_header(); ?>
 <main>
-    <h1><?php single_cat_title(); // Displays the category name ?></h1>
+      /*// Displays the category name*/
+    <h1><?php single_cat_title(); ?></h1>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <article>
             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -373,20 +375,20 @@ In your theme’s **functions.php**, add this code:
 
 ```css
 function mytheme_customize_register($wp_customize) {
-    // Add a new section in the Customizer
+    /*// Add a new section in the Customizer*/
     $wp_customize->add_section('mytheme_colors', array(
         'title' => __('Theme Colors'),
         'description' => 'Customize theme colors',
         'priority' => 30,
     ));
 
-    // Add setting for the header background color
+    /*// Add setting for the header background color*/
     $wp_customize->add_setting('mytheme_header_color', array(
-        'default' => '#333', // default color
+        'default' => '#333',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
 
-    // Add control for the header background color
+    /*// Add control for the header background color*/
     $wp_customize->add_control(new WP_Customize_Color_Control(
         $wp_customize,
         'mytheme_header_color',
@@ -406,7 +408,7 @@ Once you have registered this setting, you’ll need to use it in your theme to 
 
 ```css
 <header style="background-color: <?php echo get_theme_mod('mytheme_header_color', '#333'); ?>;">
-    <!-- Header content here -->
+    /*<!-- Header content here -->*/
 </header>
 ```
 
