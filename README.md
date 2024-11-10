@@ -14,7 +14,7 @@ Styles: Control the appearance of the site (colors, fonts, layout).
 An end-to-end guide on creating a custom WordPress theme, covering setup, file structure, creating templates, and adding dynamic functionality with PHP.
 
 ## 1. Initial Setup
-- **Install WordPress**: [WordPress Download](https://wordpress.org/download/)
+- **Install WordPress**: [WordPress Download](https:wordpress.org/download/)
 - **Set Up Development Environment**: Use tools like XAMPP, WAMP, or Local by Flywheel.
 
 ![WordPress Installation Screenshot](images/wordpress-setup.png)
@@ -54,13 +54,13 @@ The `style.css` file contains theme metadata and styles. The metadata at the top
 ```css
 /*
 Theme Name: My Custom Theme
-Theme URI: http://yourwebsite.com
+Theme URI: http:yourwebsite.com
 Author: Your Name
-Author URI: http://yourwebsite.com
+Author URI: http:yourwebsite.com
 Description: A custom WordPress theme built from scratch
 Version: 1.0
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: http:www.gnu.org/licenses/gpl-2.0.html
 Text Domain: my-custom-theme
 */
 ```
@@ -86,10 +86,10 @@ This file is essential for adding theme support, registering menus, and includin
 ```css
 <?php
 function mytheme_setup() {
-    /*// Enable support for Post Thumbnails*/
+    /* Enable support for Post Thumbnails*/
     add_theme_support('post-thumbnails');
 
-    /*// Register a navigation menu*/
+    /* Register a navigation menu*/
     register_nav_menus(array(
         'primary' => 'Primary Menu',
     ));
@@ -138,10 +138,10 @@ Key features include:
 ```css
 <?php
 function mytheme_basic_functions() {
-    /*// Enable custom logo support*/
+    /* Enable custom logo support*/
     add_theme_support('custom-logo');
 
-    /*// Register widget area*/
+    /* Register widget area*/
     register_sidebar(array(
         'name' => 'Sidebar',
         'id' => 'sidebar-1',
@@ -242,7 +242,7 @@ Links to recent posts, categories, and more.
 ```css
 <aside class="sidebar">
     <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-         /*// Display widgets assigned to sidebar-1*/
+         /* Display widgets assigned to sidebar-1*/
         <?php dynamic_sidebar( 'sidebar-1' ); ?>
     <?php else : ?>
         <p>Add widgets in the WordPress dashboard to appear here.</p>
@@ -311,7 +311,7 @@ Metadata like post dates, categories, and authors.
 ```css
 <?php get_header(); ?>
 <main>
-      /*// Displays the category name*/
+      /* Displays the category name*/
     <h1><?php single_cat_title(); ?></h1>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <article>
@@ -375,20 +375,20 @@ In your theme’s **functions.php**, add this code:
 
 ```css
 function mytheme_customize_register($wp_customize) {
-    /*// Add a new section in the Customizer*/
+    /* Add a new section in the Customizer*/
     $wp_customize->add_section('mytheme_colors', array(
         'title' => __('Theme Colors'),
         'description' => 'Customize theme colors',
         'priority' => 30,
     ));
 
-    /*// Add setting for the header background color*/
+    /* Add setting for the header background color*/
     $wp_customize->add_setting('mytheme_header_color', array(
         'default' => '#333',
         'sanitize_callback' => 'sanitize_hex_color',
     ));
 
-    /*// Add control for the header background color*/
+    /* Add control for the header background color*/
     $wp_customize->add_control(new WP_Customize_Color_Control(
         $wp_customize,
         'mytheme_header_color',
