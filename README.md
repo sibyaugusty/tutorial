@@ -154,12 +154,19 @@ add_action('after_setup_theme', 'mytheme_basic_functions');
 ## 6. Other Necessary Files
 
 -- **header.php**: Contains code for the top section of your website (navigation, logo).
+
 -- **footer.php**: Contains code for the bottom section (footer widgets, copyright).
+
 -- **sidebar.php**: Holds the sidebar section, where widgets are typically placed.
+
 -- **page.php**: Template for static pages, like “About” or “Contact.”
+
 -- **single.php**: Template for individual blog posts.
+
 -- **archive.php**: Template for archive pages (categories, tags).
+
 -- **search.php**: Template for search results.
+
 
 1. header.php
    
